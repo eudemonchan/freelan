@@ -50,6 +50,10 @@
 #include <boost/system/system_error.hpp>
 #include <boost/type_traits/integral_constant.hpp>
 
+#ifndef ERR_GET_FUNC
+#define ERR_GET_FUNC(e)  (int)(((e) >> 12L) & 0xFFFL) /* removed in OpenSSL 3.0 */
+#endif
+
 namespace cryptoplus
 {
 	namespace error

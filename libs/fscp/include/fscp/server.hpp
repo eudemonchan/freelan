@@ -286,9 +286,9 @@ namespace fscp
 			 * \brief Get the associated io_service.
 			 * \return The associated io_service.
 			 */
-			boost::asio::io_service& get_io_service()
+			const boost::asio::any_io_executor& get_io_service()
 			{
-				return get_socket().get_io_service();
+				return get_socket().get_executor();
 			}
 
 			/**
@@ -1356,7 +1356,7 @@ namespace fscp
 					 * @param handler The handler to call upon timeout or cancellation.
 					 */
 					template <typename WaitHandler>
-					void async_wait_reply(boost::asio::io_service& io_service, uint32_t hello_unique_number, const boost::posix_time::time_duration& timeout, WaitHandler handler);
+					void async_wait_reply(const boost::asio::any_io_executor& io_service, uint32_t hello_unique_number, const boost::posix_time::time_duration& timeout, WaitHandler handler);
 
 					/**
 					 * @brief Cancel a hello reply wait timer.

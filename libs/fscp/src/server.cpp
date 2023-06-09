@@ -1104,7 +1104,7 @@ namespace fscp
 	}
 
 	template <typename WaitHandler>
-	void server::ep_hello_context_type::async_wait_reply(boost::asio::io_service& io_service, uint32_t hello_unique_number, const boost::posix_time::time_duration& timeout, WaitHandler handler)
+	void server::ep_hello_context_type::async_wait_reply(const boost::asio::any_io_executor& io_service, uint32_t hello_unique_number, const boost::posix_time::time_duration& timeout, WaitHandler handler)
 	{
 		const boost::shared_ptr<boost::asio::deadline_timer> timer = boost::make_shared<boost::asio::deadline_timer>(boost::ref(io_service), timeout);
 

@@ -420,7 +420,7 @@ namespace freelan
 
 	const std::string core::DEFAULT_SERVICE = "12000";
 
-	core::core(boost::asio::io_service& io_service, const freelan::configuration& _configuration) :
+	core::core(boost::asio::execution_context& io_service, const freelan::configuration& _configuration) :
 		m_io_service(io_service),
 		m_configuration(_configuration),
 		m_logger_strand(m_io_service),

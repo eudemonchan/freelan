@@ -293,7 +293,7 @@ namespace freelan
 			 * \param io_service The io_service to bind to.
 			 * \param configuration The configuration to use.
 			 */
-			core(boost::asio::io_service& io_service, const freelan::configuration& configuration);
+			core(boost::asio::execution_context& io_service, const freelan::configuration& configuration);
 
 			/**
 			 * \brief Set the function to call when a log entry is emitted.
@@ -441,7 +441,7 @@ namespace freelan
 
 		private:
 
-			boost::asio::io_service& m_io_service;
+			boost::asio::execution_context& m_io_service;
 			freelan::configuration m_configuration;
 #if BOOST_ASIO_VERSION >= 101200 // Boost 1.66+
 			boost::asio::io_context::strand m_logger_strand;

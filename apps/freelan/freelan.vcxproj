@@ -38,7 +38,7 @@
     <ProjectGuid>{FCABC429-7FB2-4453-89CB-D1A59A7D59F9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>freelan</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <VcpkgTriplet Condition="'$(Platform)'=='Win32'">x86-windows-static</VcpkgTriplet>
     <VcpkgTriplet Condition="'$(Platform)'=='x64'">x64-windows-static</VcpkgTriplet>
   </PropertyGroup>
@@ -46,26 +46,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -151,7 +151,7 @@
       <Inputs>$(SolutionDir)\VERSION;$(SolutionDir)\defines.hpp.template</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
-	   <Command>xcopy /E /Y $(ProjectDir)\config\*.cfg $(SolutionDir)\install\$(PlatformShortName)\$(Configuration)\config\</Command>
+      <Command>xcopy /E /Y $(ProjectDir)\config\*.cfg $(SolutionDir)\install\$(PlatformShortName)\$(Configuration)\config\</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying the configuration files</Message>
@@ -164,14 +164,14 @@
       <WarningLevel>Level3</WarningLevel>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>USE_UPNP;USING_STATIC_LIBICONV;MINIUPNP_STATICLIB;CURL_STATICLIB;BOOST_ALL_NO_LIB;DEBUG;_WIN32_WINNT=0x0501;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOOST_BIND_GLOBAL_PLACEHOLDERS;USE_UPNP;USING_STATIC_LIBICONV;MINIUPNP_STATICLIB;CURL_STATICLIB;BOOST_ALL_NO_LIB;DEBUG;_WIN32_WINNT=0x0501;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <DisableSpecificWarnings>4345;4996;4267</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libiconv.lib;libeay32.lib;ssleay32.lib;libcurl.lib;boost_date_time-vc140-mt-gd.lib;boost_system-vc140-mt-gd.lib;boost_thread-vc140-mt-gd.lib;boost_program_options-vc140-mt-gd.lib;boost_filesystem-vc140-mt-gd.lib;libiconvplus.lib;libkfather.lib;libexecuteplus.lib;libcryptoplus.lib;libasiotap.lib;libfscp.lib;libmongooseplus.lib;libfreelan.lib;miniupnpc.lib;libminiupnpcplus.lib;crypt32.lib;Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>iconv.lib;libcrypto.lib;libssl.lib;libcurl.lib;boost_date_time-vc140-mt-gd.lib;boost_system-vc140-mt-gd.lib;boost_thread-vc140-mt-gd.lib;boost_program_options-vc140-mt-gd.lib;boost_filesystem-vc140-mt-gd.lib;libiconvplus.lib;libkfather.lib;libexecuteplus.lib;libcryptoplus.lib;libasiotap.lib;libfscp.lib;libmongooseplus.lib;libfreelan.lib;miniupnpc.lib;libminiupnpcplus.lib;crypt32.lib;Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>HighestAvailable</UACExecutionLevel>
     </Link>
     <CustomBuildStep>
